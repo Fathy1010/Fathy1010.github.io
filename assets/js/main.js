@@ -185,7 +185,7 @@
 					formMessage.hide();
 				}, 5000);
 			},
-			error: function() {
+			error: function(response) {
 				// Handle errors (optional)
 				formError.show();
 				form.trigger('reset');
