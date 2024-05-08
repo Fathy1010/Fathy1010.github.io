@@ -13,29 +13,32 @@
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-around;
-				padding: 0;
+				padding: 20px;
 				margin: 0;
 				list-style: none;
 
 			}
 
 			.card {
-				border-radius: 15px; /* Rounded corners */
-				overflow: hidden;
-				box-shadow: 0px 1px 2px rgb(164, 122, 7);
-				transition: box-shadow 0.2s ease-in-out;
-				width: calc(33.333% - 20px); /* Subtracting the margin */
-				margin: 10px;
+				display: block;
+				width: 308px;  /* Fixed width for all cards */
+				height: auto; /* Height will adjust to maintain aspect ratio */
 				text-decoration: none;
 				color: inherit;
+				border: 1px solid #000000; /* Optional: adds a border */
+				border-radius: 10px; /* Optional: rounds corners */
+				overflow: hidden; /* Ensures no content spills outside */
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+				margin-bottom: 20px; /* Space between cards vertically */
 			}
 
 			.card:hover {
-				box-shadow: 2px 2px 4px rgb(164, 122, 7);
+				box-shadow: 2px 2px 1px 2px rgb(154, 116, 11);
 			}
 
 			.card img {
 				width: 100%;
+				height: auto;
 				display: block;
 				border-top-left-radius: 15px; /* Rounded corners for the top of the image */
 				border-top-right-radius: 15px; /* Rounded corners for the top of the image */
@@ -61,13 +64,15 @@
 			@media (max-width: 768px) {
 				.card {
 					width: calc(50% - 20px); /* Adjust width for medium-sized screens */
+					height: auto;
 				}
 			}
 
-			@media (max-width: 480px) {
+			@media (max-width: 600px) {
 				.card {
-					width: 100%; /* Full width for small screens */
-					margin: 10px 0; /* Adjust margin for small screens */
+					flex: 1 1 100%; /* Take full width on small screens */
+					height: auto; /* Height can adjust based on content */
+					width: auto;
 				}
 			}
 		</style>
@@ -100,16 +105,28 @@
 							<span class="image fit"><img src="" alt="" /></span>
 
 							<ul class="cards-container">
-								<!-- Card 1 -->
+								<!-- Card 2 -->
 								<li>
-									<a href="https://copticatlas.netlify.app" target="_blank" class="card">
-										<img src="images/project/copticAtlas.png" width="308" height="308" alt="Coptic Atlas">
+									<a href="https://my-3d-avatar.netlify.app" target="_blank" class="card" width="308" height="308">
+										<img src="images/project/my3DAvatar.png" width="308" height="308" alt="3D Avatar Page">
 										<div class="card-content">
-											<h3>Coptic Atlas</h3>
-											<p>Developed on Dec 15, 2023<br>API use</p>
+											<h3>my 3D Avatar </h3>
+											<p>Developed on May 8, 2024<br>3D modeling & CSS styling & API </p>
 										</div>
 									</a>
 								</li>
+								<!-- Card 1 -->
+								<li>
+									<a href="https://copticatlas.netlify.app" target="_blank" class="card" width="308" height="308">
+										<img src="images/project/copticAtlas.png" width="308" height="308" alt="Coptic Atlas">
+										<div class="card-content">
+											<h3>Coptic Atlas</h3>
+											<p>Developed on Dec 15, 2023<br> CSS Styling & API </p>
+										</div>
+									</a>
+								</li>
+
+
 
 								<!-- Card 2 -->
 								<li>
@@ -137,7 +154,7 @@
 										<img src="images/project/githublogo.png" width="308" height="308" alt="Organic Ginger">
 										<div class="card-content">
 											<h3>Walking Dead Terminal Game</h3>
-											<p>Developed on August 1, 2023<br>Avaliable Only through github</p>
+											<p>Developed on August 1, 2023<br> Access Only through github</p>
 										</div>
 									</a>
 								</li>
@@ -147,7 +164,7 @@
 										<img src="images/project/githublogo.png" width="308" height="308"alt="Organic Ginger">
 										<div class="card-content">
 											<h3>Magic Drawing Board</h3>
-											<p>Developed on April 1, 2023 <br>Avaliable Only through github</p>
+											<p>Developed on April 1, 2023 <br> Access Only through github</p>
 										</div>
 									</a>
 								</li>
