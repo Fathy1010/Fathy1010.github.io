@@ -3910,18 +3910,18 @@ input, select, textarea {
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 110%;
+	height: 100%; /* Changed to 100% to cover the full screen */
 	overflow: auto;
 	background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
 	background-color: #000000;
-	margin: 5% auto; /* Adjusted margin for better vertical alignment */
+	margin: 2% auto; /* Smaller margin for better usage of screen space */
 	padding: 10px;
 	border: 1px solid #888;
-	width: 80%; /* Width relative to the viewport */
-	height: 80vh; /* Height based on the viewport height */
+	width: 90%; /* Making it a bit larger for better visibility */
+	height: 90vh; /* Adjusting to 90% of the viewport height */
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	animation-name: animatetop;
 	animation-duration: 0.4s;
@@ -3930,19 +3930,34 @@ input, select, textarea {
 	align-items: center;
 }
 
+@media screen and (max-width: 600px) {
+	.modal-content {
+		width: 95%; /* Maximize width on small screens */
+		height: 95%; /* Maximize height on small screens */
+	}
+}
+
+/* Ensures the modal content is always visible and centered */
+@media (orientation: portrait) {
+	.modal-content {
+		height: 90vh;
+	}
+}
+
+@media (orientation: landscape) {
+	.modal-content {
+		width: 95%; /* More width in landscape to read PDFs easier */
+		height: 80vh;
+	}
+
+}
+
 #pdfFrame {
 	width: 100%; /* Full width of its container */
 	height: 100%; /* Full height of its container */
 	border: none; /* Optional: Removes the border */
 }
 
-/* Add responsiveness for smaller screens */
-@media screen and (max-width: 600px) {
-	.modal-content {
-		width: 95%; /* Increase width on smaller screens */
-		height: 70vh; /* Adjust height on smaller screens */
-	}
-}
 
 .close {
 	color: #a47a07;
