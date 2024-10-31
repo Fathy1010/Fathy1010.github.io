@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>We'll Be Back Soon</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Embedded CSS -->
     <style>
@@ -14,11 +16,14 @@
         }
 
         /* Body styling */
-        body, html {
+        body,
+        html {
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #FFD700; /* Gold color */
-            background: #000; /* Black background */
+            color: #FFD700;
+            /* Gold color */
+            background: #000;
+            /* Black background */
             overflow: hidden;
         }
 
@@ -52,9 +57,11 @@
             .content h1 {
                 font-size: 2em;
             }
+
             .content p {
                 font-size: 1em;
             }
+
             .countdown {
                 font-size: 1.5em;
             }
@@ -68,14 +75,21 @@
             top: 0;
             left: 0;
             z-index: -1;
-            background: #000; /* Fallback color */
+            background: #000;
+            /* Fallback color */
         }
     </style>
 </head>
+
 <body>
     <!-- Particles Background -->
     <div id="particles-js"></div>
-
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div class="star-div" data-delay="15000" id="stars"></div>
+    <div class="star-div" data-delay="1000" id="stars2"></div>
+    <div class="star-div" data-delay="18000" id="stars3"></div>
     <!-- Content -->
     <div class="content">
         <h1>We'll Be Back Soon</h1>
@@ -84,101 +98,40 @@
         <div class="countdown" id="countdown">24:00:00</div>
     </div>
 
-    <!-- Include Particles.js Library -->
-    <script>
-    /* Particles.js configuration */
-    (function(){
-      var script = document.createElement('script');
-      script.onload = function () {
-        particlesJS("particles-js", {
-          "particles": {
-            "number": {
-              "value": 60,
-              "density": {
-                "enable": true,
-                "value_area": 800
-              }
-            },
-            "color": {
-              "value": "#FFD700"
-            },
-            "shape": {
-              "type": "circle"
-            },
-            "opacity": {
-              "value": 0.5
-            },
-            "size": {
-              "value": 3,
-              "random": true
-            },
-            "line_linked": {
-              "enable": true,
-              "distance": 150,
-              "color": "#FFD700",
-              "opacity": 0.4,
-              "width": 1
-            },
-            "move": {
-              "enable": true,
-              "speed": 2,
-              "direction": "none",
-              "out_mode": "out"
-            }
-          },
-          "interactivity": {
-            "events": {
-              "onhover": {
-                "enable": true,
-                "mode": "repulse"
-              }
-            },
-            "modes": {
-              "repulse": {
-                "distance": 100
-              }
-            }
-          },
-          "retina_detect": true
-        });
-      };
-      script.src = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
-      document.head.appendChild(script);
-    })();
-    </script>
 
     <!-- Countdown Timer Script -->
     <script>
-    // Set the date we're counting down to (24 hours from now)
-    var countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000;
+        // Set the date we're counting down to (24 hours from now)
+        var countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000;
 
-    // Update the count down every 1 second
-    var countdownfunction = setInterval(function() {
-      // Get today's date and time
-      var now = new Date().getTime();
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function () {
+            // Get today's date and time
+            var now = new Date().getTime();
 
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
 
-      // Time calculations for hours, minutes and seconds
-      var hours = Math.floor((distance / (1000 * 60 * 60)));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Time calculations for hours, minutes and seconds
+            var hours = Math.floor((distance / (1000 * 60 * 60)));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // Add leading zeros if needed
-      hours = (hours < 10) ? "0" + hours : hours;
-      minutes = (minutes < 10) ? "0" + minutes : minutes;
-      seconds = (seconds < 10) ? "0" + seconds : seconds;
+            // Add leading zeros if needed
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-      // Display the result in the element with id="countdown"
-      document.getElementById("countdown").innerHTML = hours + ":" + minutes + ":" + seconds;
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = hours + ":" + minutes + ":" + seconds;
 
-      // If the count down is over, write some text 
-      if (distance < 0) {
-        clearInterval(countdownfunction);
-        document.getElementById("countdown").innerHTML = "We are back online!";
-      }
-    }, 1000);
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(countdownfunction);
+                document.getElementById("countdown").innerHTML = "We are back online!";
+            }
+        }, 1000);
     </script>
 </body>
+
 </html>
