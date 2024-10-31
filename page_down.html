@@ -22,29 +22,6 @@
             overflow: hidden;
         }
 
-        /* Animated Background */
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.2), transparent),
-                        radial-gradient(circle at center, rgba(255, 215, 0, 0.1), transparent 70%);
-            background-size: 200% 200%;
-            animation: animateBG 10s infinite alternate;
-            z-index: -1;
-        }
-
-        @keyframes animateBG {
-            0% {
-                background-position: 0% 0%;
-            }
-            100% {
-                background-position: 100% 100%;
-            }
-        }
-
         /* Content Styling */
         .content {
             position: absolute;
@@ -62,6 +39,12 @@
 
         .content p {
             font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            font-size: 2em;
         }
 
         /* Responsive Design */
@@ -72,6 +55,9 @@
             .content p {
                 font-size: 1em;
             }
+            .countdown {
+                font-size: 1.5em;
+            }
         }
 
         /* Particles.js container */
@@ -81,133 +67,118 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -2;
-            background: #000; /* Fallback color */
-        }
-
-        /* Adjust the z-index of the background */
-        .background {
             z-index: -1;
+            background: #000; /* Fallback color */
         }
     </style>
 </head>
 <body>
-    <!-- Particles Background (Optional) -->
+    <!-- Particles Background -->
     <div id="particles-js"></div>
-    <!-- Animated Background -->
-    <div class="background"></div>
+
     <!-- Content -->
     <div class="content">
-        <h1>We're Under Maintenance</h1>
-        <p>Our website is currently undergoing scheduled maintenance.<br>Please check back soon.</p>
+        <h1>We'll Be Back Soon</h1>
+        <p>Sorry our website is currently undergoing scheduled maintenance.</p>
+        <p>Expect the page back in:</p>
+        <div class="countdown" id="countdown">24:00:00</div>
     </div>
 
     <!-- Include Particles.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <!-- Initialize Particles.js -->
     <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#FFD700"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#FFD700",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 6,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
+    /* Particles.js configuration */
+    (function(){
+      var script = document.createElement('script');
+      script.onload = function () {
+        particlesJS("particles-js", {
+          "particles": {
+            "number": {
+              "value": 60,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": "#FFD700"
+            },
+            "shape": {
+              "type": "circle"
+            },
+            "opacity": {
+              "value": 0.5
+            },
+            "size": {
+              "value": 3,
+              "random": true
+            },
             "line_linked": {
-              "opacity": 1
+              "enable": true,
+              "distance": 150,
+              "color": "#FFD700",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 2,
+              "direction": "none",
+              "out_mode": "out"
             }
           },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
+          "interactivity": {
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "repulse"
+              }
+            },
+            "modes": {
+              "repulse": {
+                "distance": 100
+              }
+            }
           },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
+          "retina_detect": true
+        });
+      };
+      script.src = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
+      document.head.appendChild(script);
+    })();
+    </script>
+
+    <!-- Countdown Timer Script -->
+    <script>
+    // Set the date we're counting down to (24 hours from now)
+    var countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000;
+
+    // Update the count down every 1 second
+    var countdownfunction = setInterval(function() {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for hours, minutes and seconds
+      var hours = Math.floor((distance / (1000 * 60 * 60)));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Add leading zeros if needed
+      hours = (hours < 10) ? "0" + hours : hours;
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      // Display the result in the element with id="countdown"
+      document.getElementById("countdown").innerHTML = hours + ":" + minutes + ":" + seconds;
+
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("countdown").innerHTML = "We are back online!";
+      }
+    }, 1000);
     </script>
 </body>
 </html>
