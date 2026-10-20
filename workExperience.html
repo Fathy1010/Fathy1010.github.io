@@ -3,64 +3,180 @@
 	<head>
 		<title>Work Experience - Fathy Abdelshahid</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
 		<link rel="icon" href="images/better_favicon.png" type="image/x-icon">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://kit.fontawesome.com/a2ecfaf3c8.js" crossorigin="anonymous"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Experience Dashboard Layout */
-			.experience-dashboard {
-				max-width: 1050px;
-				margin: 25px auto 40px auto;
+			/* ==========================================================================
+			   1. MODERN RESPONSIVE NAVBAR OVERRIDE
+			   ========================================================================== */
+			#header {
+				position: sticky;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background: rgba(18, 18, 24, 0.94) !important;
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+				z-index: 1000;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0 24px;
+				height: 60px;
+				box-sizing: border-box;
 			}
 
-			/* Category Filter Buttons */
+			#header .title {
+				font-size: 1.05em;
+				font-weight: 700;
+				letter-spacing: 0.5px;
+				color: #ffffff;
+				text-decoration: none;
+				white-space: nowrap;
+			}
+
+			#header nav {
+				height: 100%;
+			}
+
+			#header nav ul {
+				display: flex;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				align-items: center;
+				gap: 8px;
+			}
+
+			#header nav ul li {
+				height: 100%;
+				display: flex;
+				align-items: center;
+			}
+
+			#header nav ul li a {
+				color: #9ca3af;
+				text-decoration: none;
+				font-size: 0.82em;
+				font-weight: 600;
+				letter-spacing: 0.8px;
+				text-transform: uppercase;
+				padding: 6px 12px;
+				border-radius: 6px;
+				transition: all 0.2s ease;
+				border: none;
+				white-space: nowrap;
+			}
+
+			#header nav ul li a:hover {
+				color: #ffffff;
+				background: rgba(255, 255, 255, 0.06);
+			}
+
+			#header nav ul li a.active {
+				color: #e5c07b;
+				background: rgba(229, 192, 123, 0.12);
+			}
+
+			/* Mobile Nav: clean horizontal scrollable pills, no wrapping mess */
+			@media (max-width: 768px) {
+				#header {
+					flex-direction: column;
+					height: auto;
+					padding: 10px 16px;
+					gap: 8px;
+				}
+
+				#header .title {
+					font-size: 1em;
+				}
+
+				#header nav {
+					width: 100%;
+					overflow-x: auto;
+					-webkit-overflow-scrolling: touch;
+					scrollbar-width: none; /* Firefox */
+				}
+
+				#header nav::-webkit-scrollbar {
+					display: none; /* Chrome/Safari */
+				}
+
+				#header nav ul {
+					justify-content: flex-start;
+					gap: 6px;
+					padding-bottom: 2px;
+				}
+
+				#header nav ul li a {
+					font-size: 0.74em;
+					padding: 5px 10px;
+				}
+			}
+
+			/* ==========================================================================
+			   2. DASHBOARD & EXPERIENCE STYLING
+			   ========================================================================== */
+			.experience-dashboard {
+				max-width: 1050px;
+				margin: 15px auto 40px auto;
+			}
+
+			/* Segmented Category Controller */
 			.category-switch {
 				display: flex;
-				gap: 12px;
-				margin-bottom: 24px;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-				padding-bottom: 14px;
+				background: #16161c;
+				padding: 4px;
+				border-radius: 10px;
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				margin-bottom: 20px;
+				gap: 4px;
+				max-width: 480px;
 			}
 
 			.filter-btn {
-				background: rgba(255, 255, 255, 0.05);
-				border: 1px solid rgba(255, 255, 255, 0.15);
+				flex: 1;
+				background: transparent;
+				border: none;
 				color: #9ca3af;
-				padding: 9px 18px;
+				padding: 10px 14px;
 				border-radius: 8px;
 				cursor: pointer;
-				font-size: 0.9em;
-				font-weight: 500;
+				font-size: 0.85em;
+				font-weight: 600;
 				display: inline-flex;
 				align-items: center;
+				justify-content: center;
 				gap: 8px;
 				transition: all 0.2s ease;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
 			}
 
 			.filter-btn:hover {
-				background: rgba(229, 192, 123, 0.1);
 				color: #ffffff;
-				border-color: rgba(229, 192, 123, 0.4);
 			}
 
 			.filter-btn.active {
-				background: rgba(229, 192, 123, 0.18);
+				background: #252530;
 				color: #e5c07b;
-				border-color: #e5c07b;
-				box-shadow: 0 0 12px rgba(229, 192, 123, 0.25);
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 			}
 
-			/* Two-column Container */
+			/* Two-column container */
 			.dashboard-container {
 				display: grid;
-				grid-template-columns: 320px 1fr;
-				gap: 24px;
-				min-height: 440px;
+				grid-template-columns: 310px 1fr;
+				gap: 22px;
+				align-items: start;
 			}
 
-			/* Left List of Jobs */
+			/* Left Role Selection List */
 			.job-tab-list {
 				list-style: none;
 				padding: 0;
@@ -71,7 +187,7 @@
 			}
 
 			.job-tab-btn {
-				background: #1c1c22;
+				background: #1c1c24;
 				border: 1px solid rgba(255, 255, 255, 0.07);
 				border-radius: 10px;
 				padding: 14px 16px;
@@ -80,38 +196,38 @@
 				transition: all 0.2s ease;
 				width: 100%;
 				display: block;
+				box-sizing: border-box;
 			}
 
 			.job-tab-btn:hover {
-				background: #25252d;
+				background: #242430;
 				border-color: rgba(229, 192, 123, 0.3);
-				transform: translateX(4px);
 			}
 
 			.job-tab-btn.active {
-				background: #22222b;
+				background: #22222d;
 				border-left: 4px solid #e5c07b;
-				border-color: rgba(229, 192, 123, 0.6) rgba(255, 255, 255, 0.08) rgba(255, 255, 255, 0.08) #e5c07b;
-				box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+				border-color: rgba(229, 192, 123, 0.5) rgba(255, 255, 255, 0.08) rgba(255, 255, 255, 0.08) #e5c07b;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 			}
 
 			.tab-role {
-				font-size: 0.98em;
+				font-size: 0.95em;
 				font-weight: 600;
 				color: #ffffff;
-				margin: 0 0 4px 0;
+				margin: 0 0 3px 0;
 			}
 
 			.tab-company {
 				font-size: 0.85em;
 				color: #e5c07b;
-				margin: 0 0 4px 0;
+				margin: 0 0 3px 0;
 				display: flex;
 				justify-content: space-between;
 			}
 
 			.tab-date {
-				font-size: 0.76em;
+				font-size: 0.75em;
 				color: #8b949e;
 				margin: 0;
 			}
@@ -119,17 +235,15 @@
 			/* Right Detail Panel */
 			.job-detail-panel {
 				background: #1e1e26;
-				border: 1px solid rgba(255, 255, 255, 0.09);
+				border: 1px solid rgba(255, 255, 255, 0.08);
 				border-radius: 12px;
-				padding: 26px 30px;
+				padding: 24px 28px;
 				box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-				display: flex;
-				flex-direction: column;
 			}
 
 			.pane-content {
 				display: none;
-				animation: fadeIn 0.25s ease-in-out;
+				animation: fadeIn 0.2s ease-in-out;
 			}
 
 			.pane-content.active {
@@ -146,20 +260,20 @@
 				justify-content: space-between;
 				align-items: flex-start;
 				flex-wrap: wrap;
-				gap: 12px;
+				gap: 10px;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-				padding-bottom: 16px;
-				margin-bottom: 18px;
+				padding-bottom: 14px;
+				margin-bottom: 16px;
 			}
 
 			.pane-role {
-				font-size: 1.35em;
+				font-size: 1.3em;
 				color: #ffffff;
 				margin: 0 0 4px 0;
 			}
 
 			.pane-company {
-				font-size: 1.05em;
+				font-size: 1em;
 				color: #e5c07b;
 				margin: 0;
 				font-weight: 500;
@@ -168,15 +282,14 @@
 			.pane-company span {
 				color: #9ca3af;
 				font-weight: 400;
-				font-size: 0.9em;
 			}
 
 			.pane-date {
 				background: rgba(229, 192, 123, 0.12);
 				color: #e5c07b;
-				padding: 5px 14px;
+				padding: 4px 12px;
 				border-radius: 20px;
-				font-size: 0.82em;
+				font-size: 0.78em;
 				font-weight: 500;
 				border: 1px solid rgba(229, 192, 123, 0.3);
 				white-space: nowrap;
@@ -185,48 +298,102 @@
 			.pane-bullets {
 				list-style-type: disc;
 				padding-left: 20px;
-				margin: 0 0 22px 0;
+				margin: 0 0 18px 0;
 				color: #d1d5db;
-				font-size: 0.94em;
-				line-height: 1.65;
+				font-size: 0.92em;
+				line-height: 1.6;
 			}
 
 			.pane-bullets li {
-				margin-bottom: 9px;
+				margin-bottom: 8px;
 			}
 
 			.tech-pills {
 				display: flex;
 				flex-wrap: wrap;
-				gap: 8px;
-				padding-top: 16px;
+				gap: 6px;
+				padding-top: 14px;
 				border-top: 1px solid rgba(255, 255, 255, 0.08);
-				margin-top: auto;
 			}
 
 			.tech-pill {
 				background: rgba(255, 255, 255, 0.05);
 				color: #e2e8f0;
-				font-size: 0.78em;
-				padding: 4px 11px;
+				font-size: 0.75em;
+				padding: 3px 9px;
 				border-radius: 6px;
-				border: 1px solid rgba(255, 255, 255, 0.12);
-				letter-spacing: 0.3px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
 			}
 
-			/* Responsive */
-			@media (max-width: 860px) {
+			/* ==========================================================================
+			   3. MOBILE SCREEN OPTIMIZATION (Under 768px)
+			   ========================================================================== */
+			@media (max-width: 768px) {
 				.dashboard-container {
 					grid-template-columns: 1fr;
+					gap: 14px;
 				}
+
+				.category-switch {
+					max-width: 100%;
+					margin-bottom: 14px;
+				}
+
+				/* Turn the job tabs into horizontal swipeable chip list on mobile */
 				.job-tab-list {
-					display: grid;
-					grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-					gap: 10px;
+					flex-direction: row;
+					overflow-x: auto;
+					-webkit-overflow-scrolling: touch;
+					padding-bottom: 6px;
+					gap: 8px;
+					scrollbar-width: none;
 				}
+
+				.job-tab-list::-webkit-scrollbar {
+					display: none;
+				}
+
+				.tab-item {
+					flex: 0 0 auto;
+					width: 175px;
+				}
+
+				.job-tab-btn {
+					padding: 10px 12px;
+					height: 100%;
+				}
+
 				.job-tab-btn.active {
 					border-left: 1px solid rgba(229, 192, 123, 0.6);
-					border-top: 3px solid #e5c07b;
+					border-bottom: 3px solid #e5c07b;
+				}
+
+				.tab-role {
+					font-size: 0.88em;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				.tab-company {
+					font-size: 0.78em;
+				}
+
+				.tab-date {
+					font-size: 0.7em;
+				}
+
+				.job-detail-panel {
+					padding: 18px 16px;
+				}
+
+				.pane-role {
+					font-size: 1.15em;
+				}
+
+				.pane-bullets {
+					font-size: 0.88em;
+					padding-left: 16px;
 				}
 			}
 		</style>
@@ -234,320 +401,49 @@
 	<body class="is-preload">
 
 		<!-- Header -->
-			<header id="header">
-				<a href="index.html" class="title">Fathy Abdelshahid</a>
-				<nav>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="personalBio.html">Personal Biography</a></li>
-						<li><a href="workExperience.html" class="active">Work Experience</a></li>
-						<li><a href="personalProject.html">Personal Projects</a></li>
-					</ul>
-				</nav>
-			</header>
+		<header id="header">
+			<a href="index.html" class="title">Fathy Abdelshahid</a>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="personalBio.html">Biography</a></li>
+					<li><a href="workExperience.html" class="active">Experience</a></li>
+					<li><a href="personalProject.html">Projects</a></li>
+				</ul>
+			</nav>
+		</header>
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner">
-							<h1 class="major">Work Experience</h1>
-							<p>Select any role below to view technical contributions, architectural scope, and stack highlights.</p>
+			<!-- Main Content -->
+			<section id="main" class="wrapper">
+				<div class="inner" style="padding-top: 15px;">
+					<h1 class="major" style="margin-bottom: 10px;">Work Experience</h1>
+					<p style="color: #9ca3af; font-size: 0.9em; margin-bottom: 20px;">Select any role below to view technical contributions, architectural scope, and stack highlights.</p>
 
-							<div class="experience-dashboard">
-								<!-- Category Selector -->
-								<div class="category-switch">
-									<button class="filter-btn active" id="btn-tech" onclick="switchCategory('tech')">
-										<i class="fa-solid fa-code"></i> Software & Consulting
-									</button>
-									<button class="filter-btn" id="btn-lead" onclick="switchCategory('lead')">
-										<i class="fa-solid fa-users"></i> Leadership & Operations
-									</button>
-								</div>
-
-								<div class="dashboard-container">
-									<!-- Left List -->
-									<ul class="job-tab-list" id="job-tabs">
-										<!-- Tech Roles -->
-										<li class="tab-item tech-role">
-											<div class="job-tab-btn active" onclick="showJob('capgemini', this)">
-												<h4 class="tab-role">Software Consultant</h4>
-												<p class="tab-company">Capgemini <span>NBN</span></p>
-												<p class="tab-date">March 2026 - Present</p>
-											</div>
-										</li>
-										<li class="tab-item tech-role">
-											<div class="job-tab-btn" onclick="showJob('optizmo', this)">
-												<h4 class="tab-role">Full Stack Developer</h4>
-												<p class="tab-company">Optizmo</p>
-												<p class="tab-date">Jan 2026 - March 2026</p>
-											</div>
-										</li>
-										<li class="tab-item tech-role">
-											<div class="job-tab-btn" onclick="showJob('zai', this)">
-												<h4 class="tab-role">Graduate Fullstack Engineer</h4>
-												<p class="tab-company">Zai Payments</p>
-												<p class="tab-date">Nov 2024 - Dec 2025</p>
-											</div>
-										</li>
-										<li class="tab-item tech-role">
-											<div class="job-tab-btn" onclick="showJob('episoft', this)">
-												<h4 class="tab-role">AI Student Engineer</h4>
-												<p class="tab-company">Episoft</p>
-												<p class="tab-date">2024 - 2025</p>
-											</div>
-										</li>
-
-										<!-- Leadership Roles (Hidden by default) -->
-										<li class="tab-item lead-role" style="display: none;">
-											<div class="job-tab-btn" onclick="showJob('avondale', this)">
-												<h4 class="tab-role">Youth Head Coach</h4>
-												<p class="tab-company">Avondale FC</p>
-												<p class="tab-date">Mar 2022 - Mar 2024</p>
-											</div>
-										</li>
-										<li class="tab-item lead-role" style="display: none;">
-											<div class="job-tab-btn" onclick="showJob('footlocker', this)">
-												<h4 class="tab-role">Sales Associate</h4>
-												<p class="tab-company">Foot Locker</p>
-												<p class="tab-date">Aug 2018 - Present</p>
-											</div>
-										</li>
-										<li class="tab-item lead-role" style="display: none;">
-											<div class="job-tab-btn" onclick="showJob('physio', this)">
-												<h4 class="tab-role">Medical Receptionist</h4>
-												<p class="tab-company">101 Physio</p>
-												<p class="tab-date">Jun 2022 - Dec 2023</p>
-											</div>
-										</li>
-									</ul>
-
-									<!-- Right Detail Panels -->
-									<div class="job-detail-panel">
-
-										<!-- Capgemini -->
-										<div id="pane-capgemini" class="pane-content active">
-											<div class="pane-header">
-												<div>
-													<h3 class="pane-role">Software Consultant</h3>
-													<p class="pane-company">Capgemini <span>• Client: NBN Australia</span></p>
-												</div>
-												<span class="pane-date">March 2026 - Present</span>
-											</div>
-											<ul class="pane-bullets">
-												<li>Lead technical discovery and architectural workflow mapping across enterprise platform delivery pipelines.</li>
-												<li>Design and implement automation frameworks integrating AI-assisted tooling to eliminate manual handoffs and optimize CI/CD release cycles.</li>
-												<li>Liaise directly with client architects and technical stakeholders to translate platform constraints into secure, scalable roadmaps.</li>
-												<li>Standardize version-controlled discovery matrices and documentation to ensure team-wide technical consistency.</li>
-											</ul>
-											<div class="tech-pills">
-												<span class="tech-pill">CI/CD Automation</span>
-												<span class="tech-pill">AI Tooling</span>
-												<span class="tech-pill">Enterprise Architecture</span>
-												<span class="tech-pill">Platform Discovery</span>
-												<span class="tech-pill">Consulting</span>
-											</div>
-										</div>
-
-										<!-- Optizmo -->
-										<div id="pane-optizmo" class="pane-content">
-											<div class="pane-header">
-												<div>
-													<h3 class="pane-role">Full Stack Developer</h3>
-													<p class="pane-company">Optizmo <span>• Frontend Focus</span></p>
-												</div>
-												<span class="pane-date">Jan 2026 - March 2026</span>
-											</div>
-											<ul class="pane-bullets">
-												<li>Engineered modern, responsive web application interfaces using React and modern JavaScript/TypeScript.</li>
-												<li>Architected complex client-side state management systems and optimized rendering logic for data-heavy dashboard views.</li>
-												<li>Integrated frontend components seamlessly with backend RESTful APIs, reducing round-trip latency and enhancing caching.</li>
-												<li>Conducted structured pull request reviews and implemented component-level tests to enforce frontend quality.</li>
-											</ul>
-											<div class="tech-pills">
-												<span class="tech-pill">React</span>
-												<span class="tech-pill">JavaScript / TypeScript</span>
-												<span class="tech-pill">State Management</span>
-												<span class="tech-pill">REST APIs</span>
-												<span class="tech-pill">UI/UX</span>
-											</div>
-										</div>
-
-										<!-- Zai Payments -->
-										<div id="pane-zai" class="pane-content">
-											<div class="pane-header">
-												<div>
-													<h3 class="pane-role">Graduate Fullstack Software Engineer</h3>
-													<p class="pane-company">Zai Payments <span>• Backend & API Focus</span></p>
-												</div>
-												<span class="pane-date">Nov 2024 - Dec 2025</span>
-											</div>
-											<ul class="pane-bullets">
-												<li>Engineered resilient backend services and API infrastructure supporting high-reliability payment transactions.</li>
-												<li>Refactored legacy endpoints and optimized database queries, significantly improving throughput across SQL databases.</li>
-												<li>Implemented defense-in-depth API security standards, rigorous input validation, and structured logging.</li>
-												<li>Maintained automated CI/CD pipelines to ensure seamless, test-backed staging and production releases.</li>
-											</ul>
-											<div class="tech-pills">
-												<span class="tech-pill">Python</span>
-												<span class="tech-pill">Go</span>
-												<span class="tech-pill">RESTful APIs</span>
-												<span class="tech-pill">SQL / Databases</span>
-												<span class="tech-pill">API Security</span>
-												<span class="tech-pill">CI/CD</span>
-											</div>
-										</div>
-
-										<!-- Episoft -->
-										<div id="pane-episoft" class="pane-content">
-											<div class="pane-header">
-												<div>
-													<h3 class="pane-role">AI Student Engineer</h3>
-													<p class="pane-company">Episoft <span>• LLM & API Integration</span></p>
-												</div>
-												<span class="pane-date">2024 - 2025</span>
-											</div>
-											<ul class="pane-bullets">
-												<li>Designed and implemented backend communication pipelines enabling applications to interact reliably with Large Language Models (LLMs).</li>
-												<li>Built API middleware to handle context window formatting, token optimization, and structured response parsing.</li>
-												<li>Introduced caching mechanisms and asynchronous request queues to manage high-latency model generation under load.</li>
-												<li>Collaborated closely with cross-functional teams to bring experimental AI capabilities into production.</li>
-											</ul>
-											<div class="tech-pills">
-												<span class="tech-pill">LLM Integration</span>
-												<span class="tech-pill">API Middleware</span>
-												<span class="tech-pill">Python</span>
-												<span class="tech-pill">Prompt Engineering</span>
-												<span class="tech-pill">Async Queues</span>
-											</div>
-										</div>
-
-										<!-- Avondale FC -->
-										<div id="pane-avondale" class="pane-content">
-											<div class="pane-header">
-												<div>
-													<h3 class="pane-role">Youth Head Coach</h3>
-													<p class="pane-company">Avondale Football Club</p>
-												</div>
-												<span class="pane-date">Mar 2022 - Mar 2024</span>
-											</div>
-											<ul class="pane-bullets">
-												<li>Directed youth football training sessions, tactical drills, and matchday strategies with a strong focus on discipline and development.</li>
-												<li>Fostered clear, positive communication between players, coaching staff, and parents under high-pressure competitive environments.</li>
-											</ul>
-											<div class="tech-pills">
-												<span class="tech-pill">Team Leadership</span>
-												<span class="tech-pill">Communication</span>
-												<span class="tech-pill">Mentorship</span>
-											</div>
-										</div>
-
-										<!-- Footlocker -->
-										<div id="pane-footlocker" class="pane-content">
-											<div class="pane-header">
-												<div>
-													<h3 class="pane-role">Sales Associate</h3>
-													<p class="pane-company">Foot Locker</p>
-												</div>
-												<span class="pane-date">Aug 2018 - Present</span>
-											</div>
-											<ul class="pane-bullets">
-												<li>Delivered high-volume customer service, inventory tracking, and stock coordination in fast-paced retail settings.</li>
-												<li>Resolved customer disputes calmly and efficiently while maintaining brand presentation and sales targets.</li>
-											</ul>
-											<div class="tech-pills">
-												<span class="tech-pill">Customer Relations</span>
-												<span class="tech-pill">Problem Solving</span>
-												<span class="tech-pill">Inventory Control</span>
-											</div>
-										</div>
-
-										<!-- 101 Physio -->
-										<div id="pane-physio" class="pane-content">
-											<div class="pane-header">
-												<div>
-													<h3 class="pane-role">Medical Receptionist</h3>
-													<p class="pane-company">101 Physio</p>
-												</div>
-												<span class="pane-date">Jun 2022 - Dec 2023</span>
-											</div>
-											<ul class="pane-bullets">
-												<li>Maintained patient management software records while upholding strict confidentiality and medical privacy standards.</li>
-												<li>Managed clinic scheduling, patient inquiries, and billing processes with meticulous attention to detail.</li>
-											</ul>
-											<div class="tech-pills">
-												<span class="tech-pill">Confidentiality</span>
-												<span class="tech-pill">Record Management</span>
-												<span class="tech-pill">Client Care</span>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-
+					<div class="experience-dashboard">
+						
+						<!-- Category Selector (Segmented Controller) -->
+						<div class="category-switch">
+							<button class="filter-btn active" id="btn-tech" onclick="switchCategory('tech')">
+								<i class="fa-solid fa-code"></i> Engineering
+							</button>
+							<button class="filter-btn" id="btn-lead" onclick="switchCategory('lead')">
+								<i class="fa-solid fa-users"></i> Leadership
+							</button>
 						</div>
-					</section>
 
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Fathy Abdelshahid. All rights reserved.</li>
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-				function showJob(jobKey, element) {
-					// Remove active class from all buttons
-					document.querySelectorAll('.job-tab-btn').forEach(btn => btn.classList.remove('active'));
-					// Add active class to clicked button
-					if (element) element.classList.add('active');
-
-					// Hide all detail panes
-					document.querySelectorAll('.pane-content').forEach(pane => pane.classList.remove('active'));
-					// Show target detail pane
-					const targetPane = document.getElementById('pane-' + jobKey);
-					if (targetPane) targetPane.classList.add('active');
-				}
-
-				function switchCategory(cat) {
-					const btnTech = document.getElementById('btn-tech');
-					const btnLead = document.getElementById('btn-lead');
-					const techItems = document.querySelectorAll('.tech-role');
-					const leadItems = document.querySelectorAll('.lead-role');
-
-					if (cat === 'tech') {
-						btnTech.classList.add('active');
-						btnLead.classList.remove('active');
-						techItems.forEach(el => el.style.display = 'block');
-						leadItems.forEach(el => el.style.display = 'none');
-						// Activate first tech role
-						const firstTechBtn = techItems[0].querySelector('.job-tab-btn');
-						showJob('capgemini', firstTechBtn);
-					} else {
-						btnLead.classList.add('active');
-						btnTech.classList.remove('active');
-						techItems.forEach(el => el.style.display = 'none');
-						leadItems.forEach(el => el.style.display = 'block');
-						// Activate first lead role
-						const firstLeadBtn = leadItems[0].querySelector('.job-tab-btn');
-						showJob('avondale', firstLeadBtn);
-					}
-				}
-			</script>
-
-	</body>
-</html>
+						<div class="dashboard-container">
+							<!-- Job Selection Tabs (Horizontal Scroll on Mobile, Left Column on Desktop) -->
+							<ul class="job-tab-list" id="job-tabs">
+								<!-- Tech Roles -->
+								<li class="tab-item tech-role">
+									<div class="job-tab-btn active" onclick="showJob('capgemini', this)">
+										<h4 class="tab-role">Consultant</h4>
+										<p class="tab-company">Capgemini <span>NBN</span></p>
+										<p class="tab-date">Mar 2026 - Present</p>
+									</div>
+								</li>
+								<li class="tab-item tech-role">
+									<div class="job-tab-btn" onclick="showJob('optiz
