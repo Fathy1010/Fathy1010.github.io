@@ -1,55 +1,171 @@
 <!DOCTYPE HTML>
-
 <html>
 	<head>
-		<title>Work Experience - Fathy Abdelshahid </title>
+		<title>Work Experience - Fathy Abdelshahid</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" href="images/better_favicon.png" type="image/x-icon">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://kit.fontawesome.com/a2ecfaf3c8.js" crossorigin="anonymous"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			.experience-section {
-				margin: 30px 0;
+			/* Timeline Container */
+			.experience-container {
+				max-width: 900px;
+				margin: 30px auto;
+				position: relative;
+				padding: 10px 0 30px 20px;
 			}
 
-			.job {
-				display: flex;
-				align-items: flex-start;
-				margin-bottom: 20px;
-			}
-
-			.company-logo img {
-				width: 50px; /* Adjust the size of the logo */
-				height: 50px;
-				border-radius: 50%; /* Makes the image circular */
-				margin-right: 20px;
-			}
-
-			.job-details {
-				flex-grow: 1;
-			}
-
-			.company-info {
+			.section-category-title {
+				font-size: 1.35em;
+				color: #e5c07b;
+				margin: 40px 0 20px 0;
 				display: flex;
 				align-items: center;
+				gap: 12px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				padding-bottom: 8px;
 			}
 
-			.company-info h3 {
-				margin: 0 10px -20px 0;
-				font-size: 20px;
-
+			/* Vertical spine */
+			.timeline {
+				position: relative;
+				border-left: 2px solid rgba(229, 192, 123, 0.3);
+				margin-left: 15px;
+				padding-left: 30px;
 			}
 
-			.company-name {
-				font-weight: bold;
-				margin-left: -164px;
+			/* Timeline item */
+			.timeline-item {
+				position: relative;
+				margin-bottom: 35px;
 			}
 
-			.job-duration, .job-description {
-				margin: 5px 0;
+			/* Timeline node marker */
+			.timeline-marker {
+				position: absolute;
+				left: -42px;
+				top: 4px;
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				background: #1e1e24;
+				border: 2px solid #e5c07b;
+				box-shadow: 0 0 10px rgba(229, 192, 123, 0.4);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 10px;
+				color: #e5c07b;
 			}
 
+			/* Experience Card */
+			.experience-card {
+				background: #1e1e24;
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 12px;
+				padding: 22px 26px;
+				box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+				transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+			}
+
+			.experience-card:hover {
+				transform: translateY(-3px);
+				border-color: rgba(229, 192, 123, 0.5);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+			}
+
+			.exp-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				flex-wrap: wrap;
+				margin-bottom: 12px;
+			}
+
+			.role-title {
+				font-size: 1.25em;
+				color: #ffffff;
+				margin: 0;
+				font-weight: 600;
+			}
+
+			.company-tag {
+				color: #e5c07b;
+				font-weight: 500;
+				margin: 2px 0 0 0;
+				font-size: 0.95em;
+			}
+
+			.company-tag span {
+				color: #9ca3af;
+				font-weight: 400;
+			}
+
+			.duration-badge {
+				background: rgba(229, 192, 123, 0.12);
+				color: #e5c07b;
+				padding: 4px 12px;
+				border-radius: 20px;
+				font-size: 0.8em;
+				font-weight: 500;
+				white-space: nowrap;
+				border: 1px solid rgba(229, 192, 123, 0.3);
+			}
+
+			.exp-bullets {
+				margin: 12px 0 16px 0;
+				padding-left: 20px;
+				color: #d1d5db;
+				font-size: 0.92em;
+				line-height: 1.6;
+			}
+
+			.exp-bullets li {
+				margin-bottom: 6px;
+			}
+
+			/* Tech tags pill container */
+			.tech-pills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				margin-top: 14px;
+				padding-top: 12px;
+				border-top: 1px solid rgba(255, 255, 255, 0.08);
+			}
+
+			.tech-pill {
+				background: rgba(255, 255, 255, 0.05);
+				color: #e2e8f0;
+				font-size: 0.75em;
+				padding: 3px 10px;
+				border-radius: 6px;
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				letter-spacing: 0.3px;
+			}
+
+			@media (max-width: 768px) {
+				.timeline {
+					margin-left: 8px;
+					padding-left: 22px;
+				}
+				.timeline-marker {
+					left: -30px;
+					width: 20px;
+					height: 20px;
+				}
+				.exp-header {
+					flex-direction: column;
+					gap: 6px;
+				}
+				.duration-badge {
+					align-self: flex-start;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -60,9 +176,9 @@
 				<nav>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li><a href="personalBio.html" >Personal Biography</a></li>
+						<li><a href="personalBio.html">Personal Biography</a></li>
 						<li><a href="workExperience.html" class="active">Work Experience</a></li>
-						<li><a href="personalProject.html" >Personal Project</a></li>
+						<li><a href="personalProject.html">Personal Projects</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -74,104 +190,202 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Work Experience</h1>
-							<span class="image fit"><img src="" alt="" /></span>
+							<p>A timeline of my professional trajectory spanning software consulting, enterprise platform discovery, backend payment APIs, and leadership.</p>
 
-							<div class="experience-section">
-								<div class="job">
-									<div class="company-logo">
-										<img src="./images/img_1.png" alt="Company Logo">
-									</div>
-									<div class="job-details">
-										<div class="company-info">
-											<h3>Retail Associate</h3>
-											<p class="company-name">Footlocker</p>
+							<div class="experience-container">
+
+								<!-- SECTION 1: Software & Engineering -->
+								<h2 class="section-category-title"><i class="fa-solid fa-terminal"></i> Software Engineering & Consulting</h2>
+								<div class="timeline">
+
+									<!-- Capgemini -->
+									<div class="timeline-item">
+										<div class="timeline-marker"><i class="fa-solid fa-code-branch"></i></div>
+										<div class="experience-card">
+											<div class="exp-header">
+												<div>
+													<h3 class="role-title">Software Consultant</h3>
+													<p class="company-tag">Capgemini <span>• Client: NBN Australia</span></p>
+												</div>
+												<span class="duration-badge">Aug 2026 - Present</span>
+											</div>
+											<ul class="exp-bullets">
+												<li>Lead technical discovery and architectural workflow mapping across enterprise platform delivery pipelines.</li>
+												<li>Design and implement automation frameworks integrating AI-assisted tooling to eliminate manual handoffs and optimize CI/CD release cycles.</li>
+												<li>Liaise directly with client architects and technical stakeholders to translate platform constraints into secure, scalable roadmaps.</li>
+												<li>Standardize version-controlled discovery matrices and documentation to ensure team-wide technical consistency.</li>
+											</ul>
+											<div class="tech-pills">
+												<span class="tech-pill">CI/CD Automation</span>
+												<span class="tech-pill">AI Tooling</span>
+												<span class="tech-pill">Enterprise Architecture</span>
+												<span class="tech-pill">Platform Discovery</span>
+												<span class="tech-pill">Consulting</span>
+											</div>
 										</div>
-										<p class="job-duration">Aug 2018 - Present</p>
-										<p class="job-description">Skills Acquired:<ul>
-										<li>
-											Crisis Management
-										</li>
-										<li>
-											Customer Service Mastery
-										</li>
-										<li>
-											Visual Merchandising
-										</li>
-										<li>
-											Inventory Management
-										</li>
-										<li>
-											Team Coordination
-										</li>
-										<li> Problem Solver</li>
-									</ul></p>
 									</div>
+
+									<!-- Optizmo -->
+									<div class="timeline-item">
+										<div class="timeline-marker"><i class="fa-solid fa-layer-group"></i></div>
+										<div class="experience-card">
+											<div class="exp-header">
+												<div>
+													<h3 class="role-title">Full Stack Developer</h3>
+													<p class="company-tag">Optizmo <span>• Frontend Focus</span></p>
+												</div>
+												<span class="duration-badge">Early 2026 - Aug 2026</span>
+											</div>
+											<ul class="exp-bullets">
+												<li>Engineered modern, responsive web application interfaces using React and modern JavaScript/TypeScript.</li>
+												<li>Architected complex client-side state management systems and optimized rendering logic for data-heavy dashboard views.</li>
+												<li>Integrated frontend components seamlessly with backend RESTful APIs, reducing round-trip latency and enhancing caching.</li>
+												<li>Conducted structured pull request reviews and implemented component-level tests to enforce frontend quality.</li>
+											</ul>
+											<div class="tech-pills">
+												<span class="tech-pill">React</span>
+												<span class="tech-pill">JavaScript / TypeScript</span>
+												<span class="tech-pill">State Management</span>
+												<span class="tech-pill">REST APIs</span>
+												<span class="tech-pill">UI/UX</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- Zai Payments -->
+									<div class="timeline-item">
+										<div class="timeline-marker"><i class="fa-solid fa-server"></i></div>
+										<div class="experience-card">
+											<div class="exp-header">
+												<div>
+													<h3 class="role-title">Graduate Fullstack Software Engineer</h3>
+													<p class="company-tag">Zai Payments <span>• Backend & API Focus</span></p>
+												</div>
+												<span class="duration-badge">2024 - 2026</span>
+											</div>
+											<ul class="exp-bullets">
+												<li>Engineered resilient backend services and API infrastructure supporting high-reliability payment transactions.</li>
+												<li>Refactored legacy endpoints and optimized database queries, significantly improving throughput across SQL databases.</li>
+												<li>Implemented defense-in-depth API security standards, rigorous input validation, and structured logging.</li>
+												<li>Maintained automated CI/CD pipelines to ensure seamless, test-backed staging and production releases.</li>
+											</ul>
+											<div class="tech-pills">
+												<span class="tech-pill">Python</span>
+												<span class="tech-pill">Go</span>
+												<span class="tech-pill">RESTful APIs</span>
+												<span class="tech-pill">SQL / Databases</span>
+												<span class="tech-pill">API Security</span>
+												<span class="tech-pill">CI/CD</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- Episoft -->
+									<div class="timeline-item">
+										<div class="timeline-marker"><i class="fa-solid fa-microchip"></i></div>
+										<div class="experience-card">
+											<div class="exp-header">
+												<div>
+													<h3 class="role-title">Software Developer</h3>
+													<p class="company-tag">Episoft <span>• LLM & API Integration</span></p>
+												</div>
+												<span class="duration-badge">2023 - 2024</span>
+											</div>
+											<ul class="exp-bullets">
+												<li>Designed and implemented backend communication pipelines enabling applications to interact reliably with Large Language Models (LLMs).</li>
+												<li>Built API middleware to handle context window formatting, token optimization, and structured response parsing.</li>
+												<li>Introduced caching mechanisms and asynchronous request queues to manage high-latency model generation under load.</li>
+												<li>Collaborated closely with cross-functional teams to bring experimental AI capabilities into production.</li>
+											</ul>
+											<div class="tech-pills">
+												<span class="tech-pill">LLM Integration</span>
+												<span class="tech-pill">API Middleware</span>
+												<span class="tech-pill">Python</span>
+												<span class="tech-pill">Prompt Engineering</span>
+												<span class="tech-pill">Async Queues</span>
+											</div>
+										</div>
+									</div>
+
 								</div>
 
-								<!-- Add more .job divs for additional job experiences -->
-								<div class="job">
-									<div class="company-logo">
-										<img src="./images/Avondale_FC.png" alt="Company Logo">
-									</div>
-									<div class="job-details">
-										<div class="company-info">
-											<h3>Head Coach</h3>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="company-name">Avondale Football Club</p>
+								<!-- SECTION 2: Leadership & Operations -->
+								<h2 class="section-category-title"><i class="fa-solid fa-users"></i> Leadership & Operations</h2>
+								<div class="timeline">
+
+									<!-- Avondale FC -->
+									<div class="timeline-item">
+										<div class="timeline-marker"><i class="fa-solid fa-whistle"></i></div>
+										<div class="experience-card">
+											<div class="exp-header">
+												<div>
+													<h3 class="role-title">Youth Head Coach</h3>
+													<p class="company-tag">Avondale Football Club</p>
+												</div>
+												<span class="duration-badge">Mar 2022 - Mar 2024</span>
+											</div>
+											<ul class="exp-bullets">
+												<li>Directed youth football training sessions, tactical drills, and matchday strategies with a strong focus on discipline and development.</li>
+												<li>Fostered clear, positive communication between players, coaching staff, and parents under high-pressure competitive environments.</li>
+											</ul>
+											<div class="tech-pills">
+												<span class="tech-pill">Team Leadership</span>
+												<span class="tech-pill">Communication</span>
+												<span class="tech-pill">Mentorship</span>
+											</div>
 										</div>
-										<p class="job-duration">Mar 2022 - Mar 2024</p>
-										<p class="job-description">Skills Acquired:<ul>
-										<li>
-											Child Development Understanding
-										</li>
-										<li>
-											Patience and Positivity
-										</li>
-										<li>
-											Communication Skills
-										</li>
-										<li>
-											Adaptability
-										</li>
-										<li>
-											Creativity in Teaching
-										</li>
-
-
-									</ul></p>
 									</div>
+
+									<!-- Footlocker -->
+									<div class="timeline-item">
+										<div class="timeline-marker"><i class="fa-solid fa-tag"></i></div>
+										<div class="experience-card">
+											<div class="exp-header">
+												<div>
+													<h3 class="role-title">Sales Associate</h3>
+													<p class="company-tag">Foot Locker</p>
+												</div>
+												<span class="duration-badge">Aug 2018 - 2024</span>
+											</div>
+											<ul class="exp-bullets">
+												<li>Delivered high-volume customer service, inventory tracking, and stock coordination in fast-paced retail settings.</li>
+												<li>Resolved customer disputes calmly and efficiently while maintaining brand presentation and sales targets.</li>
+											</ul>
+											<div class="tech-pills">
+												<span class="tech-pill">Customer Relations</span>
+												<span class="tech-pill">Problem Solving</span>
+												<span class="tech-pill">Inventory Control</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- 101 Physio -->
+									<div class="timeline-item">
+										<div class="timeline-marker"><i class="fa-solid fa-hospital-user"></i></div>
+										<div class="experience-card">
+											<div class="exp-header">
+												<div>
+													<h3 class="role-title">Medical Receptionist</h3>
+													<p class="company-tag">101 Physio</p>
+												</div>
+												<span class="duration-badge">Jun 2022 - Dec 2023</span>
+											</div>
+											<ul class="exp-bullets">
+												<li>Maintained patient management software records while upholding strict confidentiality and medical privacy standards.</li>
+												<li>Managed clinic scheduling, patient inquiries, and billing processes with meticulous attention to detail.</li>
+											</ul>
+											<div class="tech-pills">
+												<span class="tech-pill">Confidentiality</span>
+												<span class="tech-pill">Record Management</span>
+												<span class="tech-pill">Client Care</span>
+											</div>
+										</div>
+									</div>
+
 								</div>
 
-								<div class="job">
-									<div class="company-logo">
-										<img src="./images/101physio.jpg" alt="Company Logo">
-									</div>
-									<div class="job-details">
-										<div class="company-info">
-											<h3>Receptionist </h3>
-											<p class="company-name">&nbsp;&nbsp;&nbsp;&nbsp; 101 Physio</p>
-										</div>
-										<p class="job-duration">Jun 2022 - Dec 2023</p>
-										<p class="job-description">Skills Acquired:<ul>
-										<li>
-											Time Management
-										</li>
-										<li>
-											Professional Communication
-										</li>
-										<li>
-											Discretion and Confidentiality
-										</li>
-										<li>
-											Attention to Detail
-										</li>
-										<li>
-											Technical Proficiency
-										</li>
+							</div>
 
-									</ul>
-										</p>
-									</div>
-								</div>
 						</div>
 					</section>
 
