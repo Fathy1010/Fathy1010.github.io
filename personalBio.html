@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-
 <html>
 <head>
   <title>Personal Biography - Fathy Abdelshahid</title>
@@ -7,19 +6,153 @@
   <link rel="icon" href="images/better_favicon.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <script src="https://kit.fontawesome.com/a2ecfaf3c8.js" crossorigin="anonymous"></script>
   <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    .bio-container {
+      max-width: 950px;
+      margin: 20px auto 40px auto;
+    }
+
+    /* Hero Bio Card */
+    .bio-hero {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      background: #1e1e26;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      margin-bottom: 35px;
+    }
+
+    .bio-avatar {
+      flex-shrink: 0;
+      width: 170px;
+      height: 170px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid #e5c07b;
+      box-shadow: 0 0 16px rgba(229, 192, 123, 0.25);
+    }
+
+    .bio-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bio-intro-text h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.5em;
+      color: #ffffff;
+    }
+
+    .bio-intro-text .subtitle {
+      color: #e5c07b;
+      font-weight: 500;
+      font-size: 0.95em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .bio-intro-text p {
+      margin: 0;
+      color: #d1d5db;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    /* Snapshot quick tags */
+    .bio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .bio-tag {
+      background: rgba(229, 192, 123, 0.1);
+      color: #e5c07b;
+      font-size: 0.78em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(229, 192, 123, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 3 Story Cards */
+    .bio-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .bio-story-card {
+      background: #1c1c22;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .bio-story-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(229, 192, 123, 0.4);
+    }
+
+    .story-icon {
+      font-size: 24px;
+      color: #e5c07b;
+      margin-bottom: 14px;
+    }
+
+    .bio-story-card h3 {
+      font-size: 1.15em;
+      color: #ffffff;
+      margin: 0 0 10px 0;
+    }
+
+    .bio-story-card p {
+      color: #9ca3af;
+      font-size: 0.88em;
+      line-height: 1.6;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .bio-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .bio-hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .bio-tags {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body class="is-preload">
 
 <!-- Header -->
 <header id="header">
- <a href="index.html" class="title">Fathy Abdelshahid</a>
+  <a href="index.html" class="title">Fathy Abdelshahid</a>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="personalBio.html" class="active">Personal Biography</a></li>
-      <li><a href="workExperience.html" >Work Experience</a></li>
-      <li><a href="personalProject.html" >Personal Project</a></li>
+      <li><a href="workExperience.html">Work Experience</a></li>
+      <li><a href="personalProject.html">Personal Projects</a></li>
     </ul>
   </nav>
 </header>
@@ -31,9 +164,61 @@
   <section id="main" class="wrapper">
     <div class="inner">
       <h1 class="major">Personal Biography</h1>
-      <div class="col-12"><span class="image fit"></span></div>
-      <p><span class="image right"><img src="images/perso1.jpeg" alt="" width="auto" height="auto" /></span>Hi I am Fathy Abdelshahid, a dynamic and driven individual with a rich cultural background, having been born and raised in Cairo, Egypt, before moving to Australia at the age of 12. As a passionate soccer enthusiast, I have not only excelled on the field but also demonstrated exceptional leadership skills as the senior school captain in high school. This early leadership experience paved the way for my academic pursuits at Monash University, where I am currently undertaking double degrees in Engineering and Computer Science.</p>
-      <p><!--<span class="image left"><img src="" alt="" width="auto" height="auto" /></span>-->My academic journey at Monash University is marked by a deep commitment to excellence and a keen interest in technology and innovation. Despite facing numerous challenges and having all odds against me, I have prevailed in my studies, demonstrating resilience and determination. Beyond the classroom, my love for travel has allowed me to explore new cultures and gain a broader perspective, further enriching my personal and professional growth. With a strong foundation in both technical and interpersonal skills, I am poised to make a significant impact in my future endeavors in the engineering and computer science fields.</p>
+      <p>A quick look into my background, leadership journey, and what drives my engineering perspective.</p>
+
+      <div class="bio-container">
+        
+        <!-- Hero Card -->
+        <div class="bio-hero">
+          <div class="bio-avatar">
+            <img src="images/perso1.jpeg" alt="Fathy Abdelshahid" onerror="this.onerror=null; this.src='images/mesticker.png';">
+          </div>
+          <div class="bio-intro-text">
+            <h2>Fathy Abdelshahid</h2>
+            <span class="subtitle">Software Consultant @ Capgemini • Monash Software Engineering (Honours)</span>
+            <p>
+              I bridge technical engineering with real-world communication. Whether translating complex client requirements into scalable platforms or tracking down root causes across distributed codebases, I bring resilience, curiosity, and high accountability to every team I join.
+            </p>
+            <div class="bio-tags">
+              <span class="bio-tag"><i class="fa-solid fa-graduation-cap"></i> Monash University Graduate</span>
+              <span class="bio-tag"><i class="fa-solid fa-shield-halved"></i> Australian Citizen</span>
+              <span class="bio-tag"><i class="fa-solid fa-briefcase"></i> Enterprise Consulting</span>
+              <span class="bio-tag"><i class="fa-solid fa-language"></i> English & Arabic</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Value Pillars -->
+        <div class="bio-cards-grid">
+          
+          <div class="bio-story-card">
+            <div class="story-icon"><i class="fa-solid fa-earth-africa"></i></div>
+            <h3>Adaptability & Perspective</h3>
+            <p>
+              Born and raised in Cairo before moving to Australia at age 12, adapting to new cultures and systems became second nature early on. Navigating unfamiliar environments shaped my open-minded problem-solving approach and ability to communicate effortlessly across diverse teams.
+            </p>
+          </div>
+
+          <div class="bio-story-card">
+            <div class="story-icon"><i class="fa-solid fa-people-group"></i></div>
+            <h3>Leadership & Teamwork</h3>
+            <p>
+              From serving as High School Captain to coaching youth football squads at Avondale FC, leadership for me is about staying calm under pressure, mentoring others, and keeping teams aligned toward shared outcomes when stakes are high.
+            </p>
+          </div>
+
+          <div class="bio-story-card">
+            <div class="story-icon"><i class="fa-solid fa-gears"></i></div>
+            <h3>Pragmatic Engineering</h3>
+            <p>
+              Holding a Bachelor of Software Engineering (Honours) from Monash, I focus on clean code, automated pipelines, and maintainable systems. I believe that software should remove friction for stakeholders rather than create technical debt.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   </section>
 
@@ -42,13 +227,10 @@
 <!-- Footer -->
 <footer id="footer" class="wrapper alt">
   <div class="inner">
-
     <ul class="menu">
       <li>&copy; Fathy Abdelshahid. All rights reserved.</li>
     </ul>
-
   </div>
-
 </footer>
 
 <!-- Scripts -->
